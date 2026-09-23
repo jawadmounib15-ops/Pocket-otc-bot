@@ -23,8 +23,8 @@ def bot():
      if isinstance(df.columns,pd.MultiIndex): df.columns=df.columns.get_level_values(0)
      r=float(rsi(df["Close"]).iloc[-1])
      sig=None
-     if r<=30: sig="BUY"
-     elif r>=70: sig="SELL"
+     if r<=25: sig="BUY"
+     elif r>=75: sig="SELL"
      if sig:
       send(f"🔵 *[OTC] {pair.replace('=X','')} {sig}*\nRSI:{r:.0f} | 5m REAL")
       time.sleep(300); continue
